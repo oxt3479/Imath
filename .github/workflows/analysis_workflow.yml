@@ -51,13 +51,13 @@ jobs:
                 -DCMAKE_INSTALL_PREFIX=../_install \
                 -DCMAKE_BUILD_TYPE=Release \
                 -DCMAKE_CXX_STANDARD=11 \
-                #-DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage" \
-                #-DCMAKE_CXX_OUTPUT_EXTENSION_REPLACE=ON \
-                #-DCMAKE_EXE_LINKER_FLAGS="-lgcov" \
                 -DCMAKE_VERBOSE_MAKEFILE:BOOL='OFF' \
                 -DBUILD_SHARED_LIBS=${{ matrix.build-shared }} \                
                 -DPYTHON='ON'\
                 -DPYTHON_EXECUTABLE=$(which python)
+                #-DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage" \
+                #-DCMAKE_CXX_OUTPUT_EXTENSION_REPLACE=ON \
+                #-DCMAKE_EXE_LINKER_FLAGS="-lgcov" \
         working-directory: _build
       - name: Build OpenEXR with build-wrapper
         shell: bash
