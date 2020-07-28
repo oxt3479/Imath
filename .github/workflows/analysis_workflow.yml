@@ -51,9 +51,9 @@ jobs:
                 -DCMAKE_INSTALL_PREFIX=../_install \
                 -DCMAKE_BUILD_TYPE=Release \
                 -DCMAKE_CXX_STANDARD=11 \
-               # -DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage" \
-               # -DCMAKE_CXX_OUTPUT_EXTENSION_REPLACE=ON \
-               # -DCMAKE_EXE_LINKER_FLAGS="-lgcov" \
+                #-DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage" \
+                #-DCMAKE_CXX_OUTPUT_EXTENSION_REPLACE=ON \
+                #-DCMAKE_EXE_LINKER_FLAGS="-lgcov" \
                 -DCMAKE_VERBOSE_MAKEFILE:BOOL='OFF' \
                 -DBUILD_SHARED_LIBS=${{ matrix.build-shared }} \                
                 -DPYTHON='ON'\
@@ -76,9 +76,9 @@ jobs:
                 --output-on-failure \
                 -VV
         working-directory: _build
-  #    - name: Generate code coverage report
-  #      run: share/ci/scripts/linux/run_gcov.sh
-  #      shell: bash
+        #    - name: Generate code coverage report
+        #      run: share/ci/scripts/linux/run_gcov.sh
+        #      shell: bash
       - name: Run sonar-scanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
